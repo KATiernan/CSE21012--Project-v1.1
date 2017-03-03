@@ -1,0 +1,39 @@
+//Default StoryNode --> will be inherited by each node class we write
+class StoryNode{
+	
+	public int decisionCode
+	public set nextNodes
+
+
+	//default class
+	public StoryNode(){
+
+
+	}
+
+	//parameters
+	public StoryNode(int decisionCode, set nextNodes){
+
+
+	}
+
+
+
+
+
+	//Methods
+	//Where all the story/cutscene animation is played and sent to display
+	public void Play{
+
+	}
+
+	//Traverse to the next decision node
+	public void Next(StoryNode next){
+
+
+	}
+	
+
+
+
+}
