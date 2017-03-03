@@ -1,9 +1,8 @@
 //Default StoryNode --> will be inherited by each node class we write
 class StoryNode{
 	
-	public int decisionCode
-	public set nextNodes
-
+	public int decisionCode;
+	public List<StoryNode> nextNodes;
 
 	//default class
 	public StoryNode(){
