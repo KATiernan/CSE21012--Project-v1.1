@@ -16,7 +16,7 @@ public class EventsCalling{ //creating the events
 public class EventsPlaying{
 	EventsCalling caller;
 	public EventsPlayer(){
-		caller = new EventsCaller();
+		caller = new EventsCalling();
 	}
 	caller.TheChange += new MyEventHandler(this.caller_TheChange);//to add the handler to an event
 	caller.TheChange -= new MyEventHandler(this.caller_TheChange);//to remove the handler from an event
@@ -24,4 +24,13 @@ public class EventsPlaying{
 	}
 }
 
+//Instructions:
+//import the EventsHandler
+//instantiate the caller as a new EventsCalling()
+//caller.TheChange += new MyEventHandler(this.caller_TheChange) starts the event
+//write the above line to start the event
+//caller.TheChange -= new MyEventHandler(this.caller_TheChange) ends the event
+//write the above line to end the event
+
 //This is from the source: https://www.codeproject.com/Articles/5043/Step-by-Step-Event-handling-in-C
+//This source might help is explaining how to use the code: https://www.codeproject.com/articles/1474/events-and-event-handling-in-c
