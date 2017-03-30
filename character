@@ -1,0 +1,102 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+using System.IO;
+using UnityEngine.SceneManagement;
+
+
+public class Character : MonoBehaviour {
+	/// <summary>
+	/// The character class is the class responable to locating the files corresponding to the character
+	/// The class will have methods to display images of the character specified
+	/// 
+	/// Katie T last edit on Mar 22
+	/// 
+	/// </summary>
+	/// <param name="gameOb">Game ob.</param>
+	/// <param name="name">Name.</param>
+	/// <param name="Px">Px.</param>
+	/// <param name="Py">Py.</param>
+	// Use this for initialization
+
+	//ImageEffectAllowedInSceneView;//allows this class to be redered
+	bool displayed;
+	//ImageEffectAllowedInSceneView;//allows this class to be redered
+	string _name;
+	string _mood;
+	//string _position = position;
+	string _side;
+	//gameObject Ob = gameOb;
+	string _location;// =   "Assets/chars/" + _name + ".jpg";//string.String("Assets/chars/butterfly");
+	Texture2D _image;
+	Rect _position;
+
+	public Character(string name, string mood, string side){
+		
+			bool displayed = false;
+			//ImageEffectAllowedInSceneView;//allows this class to be redered
+			string _name = name;
+			string _mood = mood;
+			//string _position = position;
+		string _side = side;
+			//gameObject Ob = gameOb;
+		string _location =   "Assets/chars/" + _name + ".jpg";//string.String("Assets/chars/butterfly");
+		string image =   "Assets/chars/" + _name + ".jpg";//
+			if (side.Equals ("left")) {
+				Rect _position = new Rect (-1, 1, 1, 1); //these values may need to be adjusted
+			} else {
+				Rect _position = new Rect (1, 1, 1, 1);//these values may need to be adjusted
+			}
+
+		//FileStream fileLocation = new FileStream(_location, FileMode.Open);
+		byte[] fileData;
+		if (File.Exists (_location)) {
+			fileData = File.ReadAllBytes (_location);
+			_image = new Texture2D (2, 2);//null;///This needs to be filled in with file for the images and way to find given name of file
+			_image.LoadImage (fileData);
+		}
+	}
+
+
+	void Start () {
+		}
+	
+	// Update is called once per frame
+	void Update () {
+
+		if (displayed == true) {
+			//ImageEffectAllowedInSceneView;//allows this class to be redered
+			//GetComponent (MeshRenderer).enabled = true;
+			//gameObject.active = true;
+		
+		} else {
+			//GetComponent (MeshRenderer).enabled = false;
+			//gameObject.active = false;
+			//http://answers.unity3d.com/questions/7776/how-to-make-an-gameobject-invisible-and-disappeare.html
+			GUI.DrawTexture(_position, _image);
+		}
+	}
+
+
+	public void Display(){
+		//GUI.DrawTexture(position, image);
+		//GetComponent (MeshRenderer).enabled = true;
+		//gameObject.active = true;
+		displayed = true;
+	}
+
+	public void Clear(){
+		///This needs to be done
+		if(displayed == true){
+			displayed = false;
+			//GetComponent (MeshRenderer).enabled = false;
+			//gameObject.active = false;
+		}
+		
+	}
+
+	public string GetName(){
+		return _name;
+	}
+}
