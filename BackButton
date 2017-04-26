@@ -1,0 +1,20 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+
+public class BackButton : MonoBehaviour {
+
+	private void OnGUI()
+	{
+		if (GUI.Button(new Rect(75, Screen.height-35, 50, 25), "Menu"))
+		{
+			Application.LoadLevel("MainMenu");
+		}
+	}
+
+}
